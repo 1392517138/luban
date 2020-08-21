@@ -1,0 +1,4 @@
+# Project exclude paths
+/aop/target/
+/spring/target/
+/spring-log/target/
