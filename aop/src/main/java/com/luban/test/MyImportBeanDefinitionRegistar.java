@@ -43,6 +43,7 @@ public class MyImportBeanDefinitionRegistar implements ImportBeanDefinitionRegis
          * 之前这个cardDao已经传给spring了，这里理解为给一个名字，spring就会去找针对于该名字的一个类型
          */
         beanDefinition.getConstructorArgumentValues().addGenericArgumentValue("com.luban.dao.CardDao");
+        //把这个bean改了
         beanDefinition.setBeanClass(MyFactoryBean.class);
         registry.registerBeanDefinition("cardDao",beanDefinition);
     }

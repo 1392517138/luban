@@ -2,6 +2,7 @@ package com.luban.test;
 
 import com.luban.app.MyInvocationHandler;
 import com.luban.dao.CardDao;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 
@@ -37,6 +38,9 @@ public class MyFactoryBean implements FactoryBean, InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("proxy");
+        Method method1 = proxy.getClass().getInterfaces()[0].getMethod(method.getName(), String.class);
+        Select select = method1.getDeclaredAnnotation(Select.class);
+        System.out.println(select.value()[0]);
         return null;
     }
 }
